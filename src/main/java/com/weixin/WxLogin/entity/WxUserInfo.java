@@ -1,0 +1,31 @@
+package com.weixin.WxLogin.entity;
+
+import lombok.Data;
+
+@Data
+public class WxUserInfo {
+
+    private String openId;
+
+    private String nickName;
+
+    private String gender;
+
+    private String city;
+
+    private String province;
+
+    private String country;
+
+    private String avatarUrl;
+
+    private String unionId;
+
+    private String token;
+
+    private String secretKey;
+
+    private String bafaKey;
+
+    private String state;
+}

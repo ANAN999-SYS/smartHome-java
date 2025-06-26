@@ -1,0 +1,85 @@
+server:
+  port: 9999
+#  ssl:
+#    enabled: true
+#    key-store: classpath:wx.wlsx.fun.jks
+#    key-store-password: 4001w1h9z516lr
+#    keyStoreType: jks
+spring:
+  application:
+    name: springboot-mybatis-plus
+  servlet:
+    # 表单上传文件大小限制
+    multipart:
+      enabled: true # 开启文件上传
+      max-file-size: 20MB # 设置上传文件最大值
+      max-request-size: 20MB # 设置上传文件总值
+  # 数据源配置
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    # 阿里的数据库连接池
+    druid:
+      username: smart_home
+      #username: root
+      password: 3100542635
+      #url: jdbc:mysql://localhost:3306/smart_home?serverTimezone=UTC&useSSL=false&characterEncoding=utf8&serverTimezone=GMT
+      url: jdbc:mysql://wx.wlsx.fun:3306/smart_home?serverTimezone=UTC&useSSL=false&characterEncoding=utf8&serverTimezone=GMT
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+  redis:
+    database: 0
+    port: 6379
+    host: localhost
+    password:
+  #Mqtt
+  activemq:
+    user: admin
+    password: gao
+#    broker-url: tcp://129.211.186.185:9008
+    broker-url: tcp://helloworld.wlsx.fun:9008
+    #是否信任所有包(如果传递的是对象则需要设置为true，默认是传字符串)
+    packages:
+      trust-all: true
+    #连接池
+    pool:
+      enabled: true
+      max-connections: 5
+      idle-timeout: 30000
+    #      expiry-timeout: 0
+    jms:
+      #默认使用queue模式，使用topic则需要设置为true
+      pub-sub-domain: true
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl #开启sql日志
+  mapper-locations: file:/mapper/**/**.xml
+  global-config:
+    db-config:
+      logic-delete-field: flag  # 全局逻辑删除的实体字段名(since 3.3.0,配置后可以忽略不配置步骤2)
+      logic-delete-value: 1 # 逻辑已删除值(默认为 1)
+      logic-not-delete-value: 0 # 逻辑未删除值(默认为 0)
+
+
+jwt:
+  header: "Authorization" #token返回头部
+  tokenPrefix: "Bearer " #token前缀
+  secret: "ba471e82572e2469e946f9e373c4a19e" #密钥
+  expireTime: 86400000 #token有效时间 1
+
+weixin:
+  appid: 'wx96a8a9be2b4c35b5'
+  secret: 'ba471e82572e2469e946f9e373c4a19e'
+
+upload:
+  #  ImgPath: E:\\static\\
+  ImgPath: /www/wwwroot/smartHome/
+  reflexFolder: /upload/static/
+  #反馈图片
+  feedBackImg: feedbackImg/
+  avatarUrl: avatarUrl/
+
+
+
+
