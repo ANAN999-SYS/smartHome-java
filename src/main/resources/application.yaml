@@ -69,8 +69,8 @@ jwt:
   expireTime: 86400000 #token有效时间 1
 
 weixin:
-  appid: 'wx96a8a9be2b4c35b5'
-  secret: 'ba471e82572e2469e946f9e373c4a19e'
+  appid: 'appid'
+  secret: 'secretKey'
 
 upload:
   #  ImgPath: E:\\static\\
